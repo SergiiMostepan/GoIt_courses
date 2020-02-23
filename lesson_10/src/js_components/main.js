@@ -2,6 +2,7 @@ import localStorageLoader from './localStorage_js.js';
 import cardsTemplate from '../templates/card.hbs';
 import modalTemplete from '../templates/modalWindow.hbs';
 import * as basicLightbox from 'basiclightbox';
+import PNotify from 'pnotify/dist/es/PNotify.js';
 
 let cards = [];
 
@@ -10,7 +11,7 @@ const refs = {
   btn: document.querySelector('#new_form'),
 };
 
-function createBoxes(inputValue, importance = 'low') {
+function createBoxes(inputValue, importance) {
   if (inputValue === '') inputValue = 'there is nothing';
   cards.unshift({
     title: inputValue,
@@ -72,11 +73,18 @@ function creatBoxesAddivent(e) {
       importance = inputs[i].dataset.import;
     }
   }
-
-  createBoxes(e.target.elements[0].value, importance);
-  e.target.elements[0].value = '';
-  instance.close();
-  form.removeEventListener('submit', creatBoxesAddivent);
+  console.log(importance);
+  if (importance === undefined) {
+    PNotify.alert({
+      text: 'Please, choose priority',
+      delay: 1000,
+    });
+  } else {
+    createBoxes(e.target.elements[0].value, importance);
+    e.target.elements[0].value = '';
+    instance.close();
+    form.removeEventListener('submit', creatBoxesAddivent);
+  }
 }
 
 const instance = basicLightbox.create(modalTemplete());
@@ -100,5 +108,4 @@ refs.ulList.addEventListener('click', e => actions(e));
 
 refs.btn.addEventListener('click', e => modalWindow(e));
 
-
-window.addEventListener('DOMContentLoaded', renderLocalStr)
+window.addEventListener('DOMContentLoaded', renderLocalStr);
