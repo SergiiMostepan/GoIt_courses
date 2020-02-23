@@ -10,7 +10,7 @@ const refs = {
   btn: document.querySelector('#new_form'),
 };
 
-function createBoxes(inputValue, importance) {
+function createBoxes(inputValue, importance = 'low') {
   if (inputValue === '') inputValue = 'there is nothing';
   cards.unshift({
     title: inputValue,
