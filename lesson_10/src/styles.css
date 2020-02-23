@@ -78,3 +78,7 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
+.radio_inputs {
+  color: aliceblue;
+}
