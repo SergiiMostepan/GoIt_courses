@@ -1,4 +1,5 @@
-window.URL = window.URL || window.webkitURL;
+import messageTemplate from '../templates/message.hbs';
+
 const refs = {
   massege: document.querySelector('#chat'),
   form: document.querySelector('#inputForm'),
@@ -15,6 +16,7 @@ let userName = '';
 let myFile;
 let map;
 let uluru = {};
+let className;
 
 // получаем текущую геолокацию
 navigator.geolocation.getCurrentPosition(position => {
@@ -52,35 +54,49 @@ function pad(value) {
 let ws = new WebSocket('wss://venify.herokuapp.com/chat');
 
 // выводим инфу с сервака
-ws.onmessage = ({ data }) => {
+ws.onmessage = ({
+  data
+}) => {
   let currentDate = getDate();
-  const { cords, message, name, image } = JSON.parse(data);
-  const newMessage = document.createElement('li');
-  newMessage.textContent = currentDate + ':   ' + name + ': ' + message;
-  refs.massege.appendChild(newMessage);
-  createImage(image, refs.massege);
+  if (name === userName) {
+    className = 'myUser'
+  } else {
+    className = 'anotherUser'
+  }
+  const {
+    cords,
+    message,
+    name,
+    image
+  } = JSON.parse(data);
+  let markup = messageTemplate({
+    message,
+    name,
+    image,
+    currentDate,
+    className
+  });
+  console.log(markup)
+  refs.massege.insertAdjacentHTML('beforeend', markup)
   const marker = new google.maps.Marker({
     position: cords,
     map: map,
   });
 };
 
-// создаем елемент фото
-function createImage(src, element) {
-  const image = document.createElement('img');
-  image.classList.add('img');
-  image.src = src;
-  element.appendChild(image);
+function createMessage(currentDate, name, message) {
+  const newMessage = document.createElement('li');
+  newMessage.textContent = currentDate + ':   ' + name + ': ' + message;
+  refs.massege.appendChild(newMessage);
 }
 
 refs.file.addEventListener('change', e => {
   const file = e.target.files[0];
   const FR = new FileReader();
   FR.readAsDataURL(file);
-  FR.addEventListener('load', function(e) {
+  FR.addEventListener('load', function (e) {
     myFile = e.target.result;
     avatarImg.src = myFile;
-    // createImage(myFile, refs.registrationSection);
   });
 });
 
@@ -101,6 +117,7 @@ function newName(inputName) {
   // if (userName === '')
   userName = inputName;
 }
+
 function visibleChat() {
   refs.chatSection.classList.add('visible');
   refs.registrationSection.classList.add('invisible');

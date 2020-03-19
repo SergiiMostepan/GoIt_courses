@@ -21,8 +21,9 @@ body {
   padding: 10px;
   width: 500px;
   min-height: 300px;
-  border: 2px solid rgb(27, 221, 189);
+  border: 1px solid rgba(27, 221, 189, 0.1);
   border-radius: 8px;
+  background-color: rgba(146, 199, 255, 0.3)
 }
 
 .avatar {
@@ -33,9 +34,9 @@ body {
 
 .avatar-img {
   width: 200px;
-  object-fit: cover;
-  object-position: 0 0;
-  border-radius: 100px;
+  /* object-fit: cover;
+  object-position: 0 0; */
+  /* border-radius: 100px; */
 }
 
 .userNameForm {
@@ -45,6 +46,71 @@ body {
   min-height: 300px;
 }
 
+.userName {
+  height: 40px;
+  border-radius: 5px;
+  border-color: rgb(104, 144, 197);
+  font-size: 15px;
+  color: rgb(97, 95, 95);
+  font-weight: bold;
+  padding: 8px;
+}
+
+.fileIcon {
+  margin-right: 5px;
+  margin-bottom: -2px;
+  fill: white;
+}
+
+.userFileLabel {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  width: 250px;
+  height: 47px;
+  margin: 0 auto;
+  background-color: #3e51d3;
+  border-radius: 4px;
+  padding-top: 13px;
+  cursor: pointer;
+}
+
+.userFileLabel:hover {
+  background-color: white;
+  color: #3e51d3;
+}
+
+.userFileLabel:hover .fileIcon {
+  fill: #3e51d3;
+}
+
+
+.file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+
+.buttonName {
+  height: 47px;
+  border-radius: 5px;
+  border: 0;
+  background-color: #3e51d3;
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buttonName:hover {
+  background-color: white;
+  color: #3e51d3;
+}
 
 .chat {
   list-style: none;
@@ -52,11 +118,12 @@ body {
 
 .chatSection {
   display: none;
+  justify-content: space-between;
 }
 
 
 .visible {
-  display: block;
+  display: flex;
 }
 
 .invisible {
@@ -67,7 +134,13 @@ body {
   max-width: 150px;
 }
 
+.chat-conteiner {
+  border: 1px solid black;
+  width: 50%;
+}
+
+
 #map {
-  width: 500px;
+  width: 600px;
   height: 500px;
 }
