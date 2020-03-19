@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Webpack Starter Kit</title>
+  </head>
+
+  <body>
+    <section class="registration">
+      <div class="avatar">
+        <img
+          src="./images/Знак вопроса.png"
+          alt="your avatar"
+          class="avatar-img"
+          id="avatarImg"
+        />
+      </div>
+      <form class="userNameForm" id="userNameForm">
+        <input name="userName" placeholder="Enter your name" />
+        <label for="file"
+          >Choose file to upload
+          <input type="file" id="file" name="file" multiple
+        /></label>
+        <button type="submit" class="buttonName" name="buttonName">
+          Submit
+        </button>
+      </form>
+    </section>
+
+    <section class="chatSection">
+      <button type="button" id="changeData">Change registration data</button>
+
+      <ul class="chat" id="chat"></ul>
+
+      <form class="inputForm" id="inputForm">
+        <label>введите сообщение<input name="inputField" /> </label>
+        <button type="submit" class="button" name="buttonSubmit">Submit</button>
+      </form>
+
+      <div id="map"></div>
+
+      <script async defer data-name="async"></script>
+    </section>
+  </body>
+</html>
