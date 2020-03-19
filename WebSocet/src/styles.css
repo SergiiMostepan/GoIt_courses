@@ -114,6 +114,11 @@ body {
 
 .chat {
   list-style: none;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 10px;
 }
 
 .chatSection {
@@ -138,6 +143,21 @@ body {
   border: 1px solid black;
   width: 50%;
 }
+
+.message {
+  display: block;
+  width: 150px;
+  background-color: cadetblue;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.myUser {
+  position: absolute;
+  right: 10px;
+}
+
+.anotherUser {}
 
 
 #map {
