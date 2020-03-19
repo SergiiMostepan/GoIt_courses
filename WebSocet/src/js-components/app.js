@@ -58,17 +58,17 @@ ws.onmessage = ({
   data
 }) => {
   let currentDate = getDate();
-  if (name === userName) {
-    className = 'myUser'
-  } else {
-    className = 'anotherUser'
-  }
   const {
     cords,
     message,
     name,
     image
   } = JSON.parse(data);
+  if (name === userName) {
+    className = 'myUser'
+  } else {
+    className = 'anotherUser'
+  }
   let markup = messageTemplate({
     message,
     name,
@@ -76,7 +76,6 @@ ws.onmessage = ({
     currentDate,
     className
   });
-  console.log(markup)
   refs.massege.insertAdjacentHTML('beforeend', markup)
   const marker = new google.maps.Marker({
     position: cords,
@@ -84,11 +83,11 @@ ws.onmessage = ({
   });
 };
 
-function createMessage(currentDate, name, message) {
-  const newMessage = document.createElement('li');
-  newMessage.textContent = currentDate + ':   ' + name + ': ' + message;
-  refs.massege.appendChild(newMessage);
-}
+// function createMessage(currentDate, name, message) {
+//   const newMessage = document.createElement('li');
+//   newMessage.textContent = currentDate + ':   ' + name + ': ' + message;
+//   refs.massege.appendChild(newMessage);
+// }
 
 refs.file.addEventListener('change', e => {
   const file = e.target.files[0];
