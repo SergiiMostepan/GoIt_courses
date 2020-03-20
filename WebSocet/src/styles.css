@@ -334,8 +334,32 @@ body {
     padding-right: 30px;
   }
 
+  .inputForm {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputField {
+    width: 100%;
+    margin-bottom: 2px;
+  }
+
+  .buttonSend {
+    width: 100%;
+    font-size: 0;
+  }
+
+  .message {
+    width: 70%;
+  }
+
   .myUser {
     width: 70%;
-    margin-left: 32%;
+    margin-left: 34%;
+  }
+
+  .svg-icon {
+    position: unset;
+    width: 25px;
   }
 }
