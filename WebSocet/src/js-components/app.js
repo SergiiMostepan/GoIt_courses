@@ -170,6 +170,7 @@ window.addEventListener('DOMContentLoaded', e => {
   }
   if (image !== undefined) {
     avatarImg.src = image
+    myFile = image
   }
   // console.dir(e.target.body.children.registration.children.userNameForm.elements)
 });
