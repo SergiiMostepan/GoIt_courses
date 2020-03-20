@@ -54,29 +54,22 @@ function pad(value) {
 let ws = new WebSocket('wss://venify.herokuapp.com/chat');
 
 // выводим инфу с сервака
-ws.onmessage = ({
-  data
-}) => {
+ws.onmessage = ({ data }) => {
   let currentDate = getDate();
-  const {
-    cords,
-    message,
-    name,
-    image
-  } = JSON.parse(data);
+  const { cords, message, name, image } = JSON.parse(data);
   if (name === userName) {
-    className = 'myUser'
+    className = 'myUser';
   } else {
-    className = 'anotherUser'
+    className = 'anotherUser';
   }
   let markup = messageTemplate({
     message,
     name,
     image,
     currentDate,
-    className
+    className,
   });
-  refs.massege.insertAdjacentHTML('beforeend', markup)
+  refs.massege.insertAdjacentHTML('beforeend', markup);
   const marker = new google.maps.Marker({
     position: cords,
     map: map,
@@ -93,7 +86,7 @@ refs.file.addEventListener('change', e => {
   const file = e.target.files[0];
   const FR = new FileReader();
   FR.readAsDataURL(file);
-  FR.addEventListener('load', function (e) {
+  FR.addEventListener('load', function(e) {
     myFile = e.target.result;
     avatarImg.src = myFile;
   });
