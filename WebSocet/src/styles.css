@@ -297,6 +297,45 @@ body {
 @media (min-width: 375px) and (max-width: 767px) {
   .registration {
     width: 340px;
+    min-height: 570px;
+  }
+
+  .userNameForm {
     min-height: 370px;
+  }
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .avatar-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .chatSection {
+    flex-direction: column;
+  }
+
+  .chat-conteiner {
+    width: 90%;
+    margin: 50px auto 30px;
+  }
+
+  .map-conteiner {
+    width: 90%;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .stickyHeader {
+    text-align: right;
+    padding-right: 30px;
+  }
+
+  .message {
+    width: 70%;
+    margin-left: 32%;
   }
 }
