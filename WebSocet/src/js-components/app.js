@@ -1,4 +1,5 @@
 import messageTemplate from '../templates/message.hbs';
+import localStorageLoader from './localStorage.js'
 
 const refs = {
   massege: document.querySelector('#chat'),
@@ -54,9 +55,16 @@ function pad(value) {
 let ws = new WebSocket('wss://venify.herokuapp.com/chat');
 
 // выводим инфу с сервака
-ws.onmessage = ({ data }) => {
+ws.onmessage = ({
+  data
+}) => {
   let currentDate = getDate();
-  const { cords, message, name, image } = JSON.parse(data);
+  const {
+    cords,
+    message,
+    name,
+    image
+  } = JSON.parse(data);
   if (name === userName) {
     className = 'myUser';
   } else {
@@ -76,17 +84,12 @@ ws.onmessage = ({ data }) => {
   });
 };
 
-// function createMessage(currentDate, name, message) {
-//   const newMessage = document.createElement('li');
-//   newMessage.textContent = currentDate + ':   ' + name + ': ' + message;
-//   refs.massege.appendChild(newMessage);
-// }
 
 refs.file.addEventListener('change', e => {
   const file = e.target.files[0];
   const FR = new FileReader();
   FR.readAsDataURL(file);
-  FR.addEventListener('load', function(e) {
+  FR.addEventListener('load', function (e) {
     myFile = e.target.result;
     avatarImg.src = myFile;
   });
@@ -104,10 +107,24 @@ const sendData = message => {
   );
 };
 
+
+
 // вводим имя
 function newName(inputName) {
-  // if (userName === '')
   userName = inputName;
+  if (myFile === undefined) {
+    myFile = 'https://image.flaticon.com/icons/png/512/18/18436.png'
+  }
+}
+
+
+function saveToLocal() {
+  localStorage.removeItem('local')
+  let local = {
+    name: userName,
+    image: myFile
+  }
+  localStorageLoader.save('local', local)
 }
 
 function visibleChat() {
@@ -122,9 +139,13 @@ function changeData() {
 
 refs.userNameForm.addEventListener('submit', e => {
   e.preventDefault();
-  newName(e.target.elements.userName.value);
-  e.target.elements.userName.value = '';
-  visibleChat();
+  if (e.target.elements.userName.value === '') {
+    alert('Введите имя')
+  } else {
+    newName(e.target.elements.userName.value);
+    saveToLocal()
+    visibleChat();
+  }
 });
 
 refs.changeDataButton.addEventListener('click', e => {
@@ -136,4 +157,19 @@ refs.form.addEventListener('submit', e => {
   e.preventDefault();
   sendData(e.target.elements.inputField.value);
   e.target.elements.inputField.value = '';
+});
+
+
+window.addEventListener('DOMContentLoaded', e => {
+  const {
+    name,
+    image
+  } = localStorageLoader.load('local');
+  if (name !== undefined) {
+    e.target.body.children.registration.children.userNameForm.elements.userName.value = name;
+  }
+  if (image !== undefined) {
+    avatarImg.src = image
+  }
+  // console.dir(e.target.body.children.registration.children.userNameForm.elements)
 });
