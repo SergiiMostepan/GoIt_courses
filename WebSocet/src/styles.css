@@ -310,11 +310,11 @@ body {
 @media (min-width: 375px) and (max-width: 767px) {
   .registration {
     width: 340px;
-    min-height: 530px;
+    min-height: 480px;
   }
 
   .userNameForm {
-    min-height: 330px;
+    min-height: 310px;
   }
 
   .avatar {
