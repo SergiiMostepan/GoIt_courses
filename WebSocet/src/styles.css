@@ -329,11 +329,13 @@ body {
 
   .chat-conteiner {
     width: 90%;
+    height: 90%;
     margin: 50px auto 30px;
   }
 
   .chat {
-    height: 430px;
+    /* height: 430px; */
+    height: 80%;
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -361,11 +363,13 @@ body {
   }
 
   .stickyHeader {
+    height: 6%;
     text-align: right;
     padding-right: 30px;
   }
 
   .inputForm {
+    height: 20%;
     display: flex;
     flex-direction: column;
   }
