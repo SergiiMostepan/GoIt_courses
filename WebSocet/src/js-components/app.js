@@ -151,8 +151,10 @@ refs.changeDataButton.addEventListener('click', e => {
 
 refs.form.addEventListener('submit', e => {
   e.preventDefault();
-  sendData(e.target.elements.inputField.value);
-  e.target.elements.inputField.value = '';
+  if (e.target.elements.inputField.value !== '') {
+    sendData(e.target.elements.inputField.value);
+    e.target.elements.inputField.value = '';
+  }
 });
 
 window.addEventListener('DOMContentLoaded', e => {

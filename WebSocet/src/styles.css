@@ -342,6 +342,12 @@ body {
     width: 0px;
   }
 
+  .chat::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+
   .map-conteiner {
     width: 80%;
     height: 200px;
