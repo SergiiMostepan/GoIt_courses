@@ -158,10 +158,30 @@ body {
 .chat {
   width: 100%;
   list-style: none;
-  min-height: 500px;
+  height: 500px;
   display: block;
   flex-direction: column;
   padding: 0;
+  overflow-y: scroll;
+}
+
+/* .chat:hover {
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+  -ms-overflow-scrolling: touch;
+  -o-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+} */
+
+.chat::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+.chat::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .visible {
@@ -318,6 +338,11 @@ body {
   .chat-conteiner {
     width: 90%;
     margin: 50px auto 30px;
+  }
+
+  .chat {
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
 
   .map-conteiner {
