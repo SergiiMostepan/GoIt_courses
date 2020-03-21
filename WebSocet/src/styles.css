@@ -165,15 +165,6 @@ body {
   overflow-y: scroll;
 }
 
-/* .chat:hover {
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  -moz-overflow-scrolling: touch;
-  -ms-overflow-scrolling: touch;
-  -o-overflow-scrolling: touch;
-  overflow-scrolling: touch;
-} */
-
 .chat::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 7px;
@@ -341,8 +332,13 @@ body {
   }
 
   .chat {
-    overflow-y: hidden;
+    overflow-y: auto;
     overflow-x: hidden;
+  }
+
+  .chat::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0px;
   }
 
   .map-conteiner {
