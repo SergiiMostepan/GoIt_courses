@@ -335,7 +335,7 @@ body {
   .chat-conteiner {
     border: none;
     width: 100%;
-    height: 90vh;
+    height: 85vh;
     margin: 0 auto;
     background-color: rgba(146, 199, 255, 0);
   }
