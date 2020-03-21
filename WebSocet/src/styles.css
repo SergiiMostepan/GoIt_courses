@@ -340,7 +340,7 @@ body {
 
   .chat::-webkit-scrollbar {
     -webkit-appearance: none;
-    width: 50px;
+    width: 0px;
   }
 
   .chat::-webkit-scrollbar-thumb {
