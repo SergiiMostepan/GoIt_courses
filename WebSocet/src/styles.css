@@ -341,10 +341,10 @@ body {
   }
 
   .chat {
-    height: 80%;
+    height: 88%;
     overflow-y: auto;
     overflow-x: hidden;
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
 
   .chat::-webkit-scrollbar {
@@ -399,7 +399,7 @@ body {
   }
 
   .inputForm {
-    height: 20%;
+    height: 12%;
     display: flex;
     flex-direction: column;
   }
