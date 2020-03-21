@@ -334,13 +334,13 @@ body {
 
   .chat {
     height: 430px;
-    overflow-y: hidden;
+    overflow-y: auto;
     overflow-x: hidden;
   }
 
   .chat::-webkit-scrollbar {
     -webkit-appearance: none;
-    width: 0px;
+    width: 50px;
   }
 
   .chat::-webkit-scrollbar-thumb {
