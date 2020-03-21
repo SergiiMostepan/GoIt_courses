@@ -192,7 +192,7 @@ body {
 .message {
   display: flex;
   /* flex-direction: column; */
-  width: 40%;
+  width: 60%;
   margin: 0;
   margin-bottom: 10px;
 }
@@ -211,8 +211,8 @@ body {
 
 .image {
   display: block;
-  width: 15%;
-  height: 15%;
+  width: 9%;
+  height: 9%;
   margin-right: 10px;
   /* background-color: white; */
 }
@@ -228,7 +228,7 @@ body {
 }
 
 .myUser {
-  margin-left: 60%;
+  margin-left: 40%;
   flex-direction: row-reverse;
   /* background-color: crimson; */
 }
