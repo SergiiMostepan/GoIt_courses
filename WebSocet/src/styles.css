@@ -333,7 +333,8 @@ body {
   }
 
   .chat {
-    overflow-y: auto;
+    height: 500px;
+    overflow-y: hidden;
     overflow-x: hidden;
   }
 
