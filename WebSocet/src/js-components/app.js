@@ -66,7 +66,6 @@ ws.onmessage = ({ data }) => {
     className = 'anotherUser';
   }
   if (image === undefined) {
-    // image = 'https://image.flaticon.com/icons/png/512/18/18436.png';
     image = defPhoto;
   }
   let markup = messageTemplate({
@@ -111,7 +110,6 @@ const sendData = message => {
 function newName(inputName) {
   userName = inputName;
   if (myFile === undefined) {
-    // myFile = 'https://image.flaticon.com/icons/png/512/18/18436.png';
     myFile = defPhoto;
   }
 }

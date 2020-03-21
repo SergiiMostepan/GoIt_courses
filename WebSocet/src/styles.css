@@ -156,6 +156,7 @@ body {
 }
 
 .chat {
+  margin-top: 0;
   width: 100%;
   list-style: none;
   height: 500px;
@@ -342,7 +343,7 @@ body {
   }
 
   .map-conteiner {
-    width: 90%;
+    width: 80%;
     height: 200px;
     margin: 0 auto;
   }
