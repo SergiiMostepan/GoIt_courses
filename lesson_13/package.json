@@ -52,6 +52,6 @@
     "core-js": "^3.3.4",
     "handlebars": "^4.5.3",
     "regenerator-runtime": "^0.13.3",
-    "swiper": "^5.3.6"
+    "swiper": "^6.5.1"
   }
 }
